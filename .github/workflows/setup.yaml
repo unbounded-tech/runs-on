@@ -1,0 +1,42 @@
+name: Setup Runners
+
+on:
+  workflow_call:
+    inputs:
+      runs-on:
+        description: 'Runner configuration: either a single string (e.g., "ubuntu-latest") or a JSON array'
+        type: string
+        default: 'ubuntu-latest'
+        required: false
+    outputs:
+      matrix:
+        description: "The matrix configuration for runners"
+        value: ${{ jobs.setup.outputs.matrix }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Determine Runner Configuration
+        id: set-matrix
+        run: |
+          # Use EOF delimiter to handle multi-line strings properly
+          RUNS_ON=$(cat << 'EOF'
+          ${{ inputs.runs-on }}
+          EOF
+          )
+          
+          # Remove leading/trailing whitespace
+          RUNS_ON=$(echo "$RUNS_ON" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          
+          # Check if it starts with [ (JSON array)
+          if [[ $RUNS_ON == \[* ]]; then
+            # JSON array input - escape any quotes and newlines for GitHub Actions output
+            MATRIX=$(echo "$RUNS_ON" | jq -c .)
+            echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+          else
+            # Single string input
+            echo "matrix=[{\"runs-on\": \"$RUNS_ON\"}]" >> $GITHUB_OUTPUT
+          fi

@@ -1,0 +1,18 @@
+name: On Push to Main, Version and Tag For Release
+on:
+  push:
+    branches:
+    - main
+
+permissions:
+  packages: write
+  contents: write
+
+jobs:
+
+  version-and-tag:
+    name: Version and Tag
+    uses: harmony-labs/workflow-vnext-tag/.github/workflows/workflow.yaml@e254664b4d1bb4f104aa37d947f420db8c146c48 # v1.2.3
+    secrets: inherit
+    with:
+      useDeployKey: true
