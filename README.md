@@ -1,3 +1,3 @@
-# workflows-xrd
+# runs-on
 
-XRD related workflows
+runs-on related workflows
