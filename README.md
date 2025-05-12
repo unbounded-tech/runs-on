@@ -7,7 +7,7 @@ runs-on related workflows
 In another shared workflow, use `harmony-labs/runs-on/.github/workflows/setup.yaml@main` to allow user to pass in a string or JSON array of strings with runner information:
 
 ```
-name: xrd-preview-clean
+name: your-workflow
 on:
   workflow_call:
     inputs:
