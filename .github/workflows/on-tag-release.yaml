@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   call-release-workflow:
-    uses: harmony-labs/workflow-simple-release/.github/workflows/workflow.yaml@82c7409f5a02457b7214adf330f73237ef7b4121 # v1.0.0
+    uses: harmony-labs/workflow-simple-release/.github/workflows/workflow.yaml@bf5a4894d2c56a6e6b8e6b5881f4aedbc5119da8 # v1.2.0
     with:
       tag: ${{ github.ref_name }}
       name: ${{ github.ref_name }}
