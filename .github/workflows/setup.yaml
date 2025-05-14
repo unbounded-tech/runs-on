@@ -3,6 +3,12 @@ name: Setup Runners
 on:
   workflow_call:
     inputs:
+      this-job-runs-on:
+        description: 'Runner configuration: string only'
+        type: string
+        default: 'ubuntu-latest'
+        required: false
+
       runs-on:
         description: 'Runner configuration: either a single string (e.g., "ubuntu-latest") or a JSON array'
         type: string
@@ -15,7 +21,7 @@ on:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.this-job-runs-on }}
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
