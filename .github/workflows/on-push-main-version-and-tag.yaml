@@ -12,7 +12,7 @@ jobs:
 
   version-and-tag:
     name: Version and Tag
-    uses: harmony-labs/workflow-vnext-tag/.github/workflows/workflow.yaml@4f592da4f800e30790a5185f94bd06555c778ee0 # v1.5.0
+    uses: harmony-labs/workflow-vnext-tag/.github/workflows/workflow.yaml@4a1639d72427c941ec89cc81baa1c4afd219f9b2 # v1.6.0
     secrets: inherit
     with:
       useDeployKey: true
