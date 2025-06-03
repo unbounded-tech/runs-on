@@ -4,7 +4,7 @@ runs-on related workflows
 
 ## Example
 
-In another shared workflow, use `harmony-labs/runs-on/.github/workflows/setup.yaml@main` to allow user to pass in a string or JSON array of strings with runner information:
+In another shared workflow, use `unbounded-tech/runs-on/.github/workflows/setup.yaml@main` to allow user to pass in a string or JSON array of strings with runner information:
 
 ```
 name: your-workflow
@@ -19,7 +19,7 @@ on:
 
 jobs:
   setup:
-    uses: harmony-labs/runs-on/.github/workflows/setup.yaml@main
+    uses: unbounded-tech/runs-on/.github/workflows/setup.yaml@main
     with:
       runs-on: ${{ inputs.runs-on }}
   
