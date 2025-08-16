@@ -1,6 +1,8 @@
 # runs-on
 
-runs-on related workflows
+runs-on related workflows.
+
+Pretty much the entire reason this exists is to be able to define a runner, or array of runners in json. You can use the string format instead of this as well. There's a couple second trade-off vs. a nicer developer experience.
 
 ## Example
 
