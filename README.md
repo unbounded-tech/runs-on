@@ -1,6 +1,6 @@
 # runs-on
 
-runs-on related workflows.
+[runs-on](https://runs-on.com/) - a self hosted Github Actions runner solutions - related workflows.
 
 Pretty much the entire reason this exists is to be able to define a runner, or array of runners in json. You can use the string format instead of this as well. There's a couple second trade-off vs. a nicer developer experience.
 
